@@ -1,0 +1,33 @@
+// $enable-rounded: false;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-responsive-font-sizes: true;
+$border-radius: 2px;
+
+$primary: black;
+$body-bg: #303841;
+$body-color: #fff;
+
+$link-color: $body-color;
+$link-hover-decoration: none;
+
+$body-bg-inverted: $body-color;
+$body-color-inverted: $body-bg;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1900px,
+);
+
+$font-size-base: 1rem;
+$h1-font-size: calc(3.6vh + #{$font-size-base});
+$h2-font-size: calc(2.16vh + #{$font-size-base});
+$h3-font-size: calc(1.44vh + #{$font-size-base});
+$h4-font-size: calc(0.72vh + #{$font-size-base});
+$h5-font-size: calc(0.36vh + #{$font-size-base});
+
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';

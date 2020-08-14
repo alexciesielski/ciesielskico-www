@@ -1,0 +1,7 @@
+@import '../styles/variables';
+
+.company-description {
+  & > :not(:last-child) {
+    margin-bottom: $spacer * 2;
+  }
+}

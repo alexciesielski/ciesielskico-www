@@ -1,0 +1,15 @@
+@import './variables';
+@import './bootstrap';
+@import './fonts';
+@import './buttons';
+@import './animations';
+
+:root {
+  --body-bg: #{$body-bg};
+  --body-color: #{$body-color};
+
+  --body-bg-inverted: #{$body-color};
+  --body-color-inverted: #{$body-bg};
+
+  --primary: #{$primary};
+}

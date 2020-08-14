@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact",
+  "info": {
+    "name": "Contact"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    }
+  }
+}

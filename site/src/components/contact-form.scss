@@ -1,0 +1,10 @@
+@import '../styles/variables';
+
+.btn-cta {
+  border-radius: $rounded-pill;
+  padding: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}

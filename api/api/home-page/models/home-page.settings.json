@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "home-page",
+  "info": {
+    "name": "Home Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "long_description": {
+      "type": "richtext"
+    },
+    "clients": {
+      "collection": "client"
+    },
+    "title": {
+      "type": "string"
+    },
+    "invitation": {
+      "type": "string"
+    },
+    "bg": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "bg_video": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "project": {
+      "model": "project"
+    }
+  }
+}

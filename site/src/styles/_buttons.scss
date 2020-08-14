@@ -1,0 +1,52 @@
+@import 'variables';
+
+.btn {
+  background-color: $body-bg-inverted;
+  display: inline-block;
+  padding: 1.3rem 2.171rem;
+
+  &:hover {
+    background-color: darken($body-bg-inverted, 15%);
+  }
+}
+
+.btn-pill {
+  text-transform: none;
+  line-height: 1.2em;
+  letter-spacing: 0.02em;
+  border-radius: 300px;
+}
+
+.section-color--dark {
+  a {
+    color: $black;
+
+    &:hover {
+      color: darken($body-color-inverted, 15%);
+    }
+  }
+}
+
+.section-color--dark {
+  a {
+    color: $body-color-inverted;
+
+    &:hover {
+      color: darken($body-color-inverted, 15%);
+    }
+  }
+}
+
+.section-color--white {
+  a {
+    color: $body-color;
+
+    &.btn-pill {
+      background-color: black;
+    }
+
+    &:hover {
+      color: darken($body-color, 15%);
+    }
+  }
+}

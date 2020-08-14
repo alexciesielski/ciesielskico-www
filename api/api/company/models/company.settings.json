@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "companies",
+  "info": {
+    "name": "Company"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "project": {
+      "model": "project"
+    }
+  }
+}
