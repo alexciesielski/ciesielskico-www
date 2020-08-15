@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.NODE_ENV === 'production' ? `http://api.ciesielski.co` : 'http://localhost:1338',
+        apiURL: `http://api.ciesielski.co`,
         contentTypes: [`project`, `client`, `skills`],
         singleTypes: [`home-page`, `contact`, `about-me`],
       },

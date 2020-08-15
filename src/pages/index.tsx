@@ -3,10 +3,11 @@ import React, { useEffect } from 'react';
 import Typed from 'typed.js';
 import FeaturedWork from '../components/featured-work';
 import Layout from '../components/layout';
-import ResponsiveImage, { IResponsiveImage } from '../components/responsive-image';
 import Section from '../components/section';
 import SEO from '../components/seo';
 import { VideoBackground } from '../components/video-background';
+import Clients from '../sections/clients';
+import Skills from '../sections/skills';
 import './index.scss';
 
 export const query = graphql`
@@ -34,15 +35,6 @@ export const query = graphql`
         }
       }
     }
-    allStrapiClient {
-      nodes {
-        name
-        logo {
-          publicURL
-        }
-        url
-      }
-    }
   }
 `;
 
@@ -62,13 +54,6 @@ type DataProps = {
         url: string;
       }[];
     };
-  };
-  allStrapiClient: {
-    nodes: Array<{
-      name: string;
-      logo: IResponsiveImage;
-      url: string;
-    }>;
   };
   site: {
     siteMetadata: {
@@ -117,15 +102,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
     animatables.forEach((animated) => observer.observe(animated));
   });
-
-  const clients = data.allStrapiClient.nodes;
-  const clientCount = clients.length;
-  const defaultChunksize = 3;
-  const chunkSize =
-    clientCount % 5 === 0 ? 5 : clientCount % 4 === 0 ? 4 : clientCount % 3 === 0 ? 3 : defaultChunksize;
-  const clientChunks: DataProps['allStrapiClient']['nodes'][] = clients
-    .map((_, index) => clients.slice(index * chunkSize, (index + 1) * chunkSize))
-    .filter((arr) => arr.length > 0);
 
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
@@ -181,35 +157,17 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         </div>
       </Section>
 
-      <Section header="Who I've worked with" height="small" width="medium" color="white">
-        {clientChunks.map((clientChunk, idx1) => (
-          <div className="clients row mt-4 align-items-center justify-content-around" key={idx1}>
-            {clientChunk
-              .filter((client) => client.logo)
-              .map((client, idx2) => (
-                <div
-                  key={idx2}
-                  className={`client col-sm-${12 / clientChunk.length} animated delay-${idx1 + idx2}s`}
-                  style={{ maxWidth: '200px' }}
-                >
-                  <div className="p-4">
-                    <a href={client.url}>
-                      <ResponsiveImage name={client.name} {...client.logo} />
-                    </a>
-                  </div>
-                </div>
-              ))}
-          </div>
-        ))}
-      </Section>
+      <Clients></Clients>
 
-      <Section header="Featured work" height="medium">
+      <Skills></Skills>
+
+      <Section header="Featured work" height="medium" color="white">
         <div className="animated">
           <FeaturedWork url={data.strapiHomePage.project.media[0].url} {...data.strapiHomePage.project} />
         </div>
       </Section>
 
-      <Section color="white" height="small">
+      <Section color="dark" height="small">
         <div className="row" style={{ paddingTop: '3vw' }}>
           <div className="col">
             <div className="display-4 my-4 animated">I'd love to create your app.</div>

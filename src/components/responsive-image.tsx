@@ -9,9 +9,12 @@ import React from 'react';
 import './responsive-image.scss';
 
 export interface IResponsiveImage {
-  publicURL: string;
+  publicURL?: string;
   childImageSharp?: {
-    sizes: {
+    resize?: {
+      src: string;
+    };
+    sizes?: {
       presentationWidth: number;
       presentationHeight: number;
       base64: string;
@@ -30,7 +33,13 @@ const ResponsiveImage: React.FC<{ name: string; zoom?: boolean } & IResponsiveIm
       <img
         className="img-fluid"
         title={name}
-        src={childImageSharp ? childImageSharp.sizes.base64 : publicURL}
+        src={
+          childImageSharp
+            ? childImageSharp.sizes
+              ? childImageSharp.sizes.base64
+              : childImageSharp.resize && childImageSharp.resize.src
+            : publicURL
+        }
         alt={name}
         loading="lazy"
       />
