@@ -65,28 +65,33 @@ type DataProps = {
 };
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
+  const [isTyping, setTyping] = useState(false);
+
   useEffect(() => {
-    new Typed('#typed', {
-      stringsElement: '#typed-strings',
-      typeSpeed: 40,
-      startDelay: 1250,
-      backDelay: 1000,
-      onBegin: () =>
-        setTimeout(() => {
-          const cursor = document.querySelector('.typed-cursor');
-          if (cursor) {
-            cursor.classList.add('h1');
-            cursor.classList.add('display-1');
-          }
-        }),
-      onComplete: () =>
-        setTimeout(() => {
-          const cursor = document.querySelector('.typed-cursor');
-          if (cursor) {
-            cursor.remove();
-          }
-        }, 1050),
-    } as any);
+    if (!isTyping) {
+      setTyping(true);
+      new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        typeSpeed: 40,
+        startDelay: 1250,
+        backDelay: 1000,
+        onBegin: () =>
+          setTimeout(() => {
+            const cursor = document.querySelector('.typed-cursor');
+            if (cursor) {
+              cursor.classList.add('h1');
+              cursor.classList.add('display-1');
+            }
+          }),
+        onComplete: () =>
+          setTimeout(() => {
+            const cursor = document.querySelector('.typed-cursor');
+            if (cursor) {
+              cursor.remove();
+            }
+          }, 1050),
+      } as any);
+    }
   });
 
   useEffect(() => {
