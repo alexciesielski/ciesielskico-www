@@ -127,6 +127,8 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     .map((_, index) => clients.slice(index * chunkSize, (index + 1) * chunkSize))
     .filter((arr) => arr.length > 0);
 
+  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -136,7 +138,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         horizontalAlignment="left"
         textAlignment="left"
         verticalAlignment="bottom"
-        background={<VideoBackground />}
+        background={vw >= 640 && <VideoBackground />}
       >
         <div className="row">
           <div className="col">
