@@ -103,7 +103,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     animatables.forEach((animated) => observer.observe(animated));
   });
 
-  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  const vw = Math.max(window.innerWidth || 640);
 
   return (
     <Layout>
