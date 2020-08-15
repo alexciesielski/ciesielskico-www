@@ -1,6 +1,5 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import React, { useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
 import Typed from 'typed.js';
 import FeaturedWork from '../components/featured-work';
 import Layout from '../components/layout';
@@ -12,6 +11,13 @@ import './index.scss';
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        author
+        title
+        description
+      }
+    }
     strapiHomePage {
       long_description
       description
@@ -64,6 +70,13 @@ type DataProps = {
       url: string;
     }>;
   };
+  site: {
+    siteMetadata: {
+      author: string;
+      title: string;
+      description: string;
+    };
+  };
 };
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
@@ -114,9 +127,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     .map((_, index) => clients.slice(index * chunkSize, (index + 1) * chunkSize))
     .filter((arr) => arr.length > 0);
 
-  console.log(chunkSize);
-  console.log(clientChunks);
-
   return (
     <Layout>
       <SEO title="Home" />
@@ -132,18 +142,36 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <div className="col">
             <h1 id="typed" className="d-inline display-1"></h1>
             <div id="typed-strings" style={{ display: 'none' }}>
-              {data.strapiHomePage.description.split('|').map((description, index) => (
-                <span key={index}>{description}</span>
-              ))}
+              <span>I create frontends.</span>
+              <span>I build backends.</span>
+              <span>I do devops.</span>
+              <span>I write code.</span>
             </div>
           </div>
         </div>
       </Section>
 
-      <Section header={data.strapiHomePage.title} height="medium">
+      <Section header={data.site.siteMetadata.title} height="medium">
         <div className="row">
           <div className="col">
-            <ReactMarkdown className="m-4 animated" source={data.strapiHomePage.long_description} />
+            <img
+              className="rounded-circle"
+              src="https://media-exp1.licdn.com/dms/image/C4E35AQG2MFYvOm183Q/profile-framedphoto-shrink_200_200/0?e=1597564800&v=beta&t=NvhxPEYkCMsOqyivt7xwYcnpZYTK5KkkfmvVLdDrqQU"
+              alt=""
+            />
+            <h3 className="m-4 animated">{data.site.siteMetadata.description}</h3>
+            <hr />
+            <h4 className="m-4">
+              Having started coding at the age of 11 it has always been my biggest passion. In 2010 I commercially
+              started creating websites and have been doing it ever since.
+            </h4>
+            <h4 className="m-4">
+              I describe myself as a full stack developer who specializes in creating beautiful and intuitive frontends.
+            </h4>
+            <h4 className="m-4">
+              I have extensive experience in building enterprise web-apps and form-based applications with complex
+              validation and business-logic to manage your data.
+            </h4>
             <Link className="m-4 btn btn-pill animated delay-1s" to="/about">
               Learn More
             </Link>
@@ -151,7 +179,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         </div>
       </Section>
 
-      <Section header="Who I've worked with" height="medium" width="medium" color="white">
+      <Section header="Who I've worked with" height="small" width="medium" color="white">
         {clientChunks.map((clientChunk, idx1) => (
           <div className="clients row mt-4 align-items-center justify-content-around" key={idx1}>
             {clientChunk
