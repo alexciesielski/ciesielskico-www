@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `ciesielski.co`,
     description: `I'm a fullstack developer who focuses on creating beautiful user interfaces with perfect UX.`,
-    author: `@ciesielskico`,
+    author: `Alexander Ciesielski`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,12 +35,8 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.NODE_ENV === 'production' ? `http://api.ciesielski.co` : 'http://localhost:1338',
-        contentTypes: [`project`, `client`],
-        singleTypes: [`home-page`, `company`, `contact`],
-        loginData: {
-          identifier: '',
-          password: '',
-        },
+        contentTypes: [`project`, `client`, `skills`],
+        singleTypes: [`home-page`, `contact`, `about-me`],
       },
     },
     `gatsby-plugin-sass`,

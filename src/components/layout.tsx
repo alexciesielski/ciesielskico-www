@@ -5,10 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Header from './header';
 import './layout.scss';
+import LinkCollection, { ILink } from './link-collection';
 import Section from './section';
 
 const Layout: React.FC<{ color?: 'white' }> = ({ children, color }) => {
@@ -22,7 +23,31 @@ const Layout: React.FC<{ color?: 'white' }> = ({ children, color }) => {
     }
   `);
 
-  const pages = ['company', 'contact'];
+  const pages: ILink[] = [
+    /* {
+      label: 'contact',
+    }, */
+    {
+      label: 'blog',
+      external: true,
+      url: 'https://medium.com/@ciesielskico/',
+    },
+    {
+      label: 'github',
+      external: true,
+      url: 'https://github.com/ciesielskico/',
+    },
+    {
+      label: 'linkedin',
+      external: true,
+      url: 'https://www.linkedin.com/in/ciesielskico/',
+    },
+    {
+      label: 'stackoverflow',
+      external: true,
+      url: 'https://stackoverflow.com/users/1808126/alexander-ciesielski/',
+    },
+  ];
 
   return (
     <>
@@ -32,11 +57,7 @@ const Layout: React.FC<{ color?: 'white' }> = ({ children, color }) => {
         <footer>
           <Section color="black" height="auto" horizontalAlignment="left" textAlignment="left">
             <div className="d-flex flex-column" style={{ marginTop: '-45px' }}>
-              {pages.map((page, index) => (
-                <Link key={index} className="my-2 mx-4 display-4 h5 menu-item" to={page}>
-                  {page}
-                </Link>
-              ))}
+              <LinkCollection classes="my-2 mx-4 display-4 h5 menu-item" pages={pages} />
             </div>
           </Section>
         </footer>

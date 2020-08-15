@@ -1,8 +1,13 @@
 import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import './header.scss';
+import LinkCollection, { ILink } from './link-collection';
 
-const Header: React.FC<{ siteTitle: string; pages: string[]; color?: string }> = ({ siteTitle, pages, color }) => {
+const Header: React.FC<{
+  siteTitle: string;
+  pages: ILink[];
+  color?: string;
+}> = ({ siteTitle, pages, color }) => {
   // https://lxieyang.github.io/blogs/tech-2018-08-18-reactstrap-gatsby-auto-hiding-navbar-trick/
   // https://www.w3schools.com/howto/howto_js_navbar_hide_scroll.asp
 
@@ -45,11 +50,7 @@ const Header: React.FC<{ siteTitle: string; pages: string[]; color?: string }> =
         <Link className="home" to="/">
           <h1 className="m-0 display-4">{siteTitle}</h1>
         </Link>
-        {pages.map((page, index) => (
-          <Link key={index} className="my-0 mx-4 h5 menu-item" to={page}>
-            {page}
-          </Link>
-        ))}
+        <LinkCollection classes="my-0 mx-4 h5 menu-item" pages={pages}></LinkCollection>
 
         <a href="#" className={`my-0 mx-4 icon`} onClick={() => setMenuResponsive(!menuResponsive)}></a>
       </nav>

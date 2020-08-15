@@ -151,7 +151,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         </div>
       </Section>
 
-      <Section header={data.site.siteMetadata.title} height="medium">
+      <Section header={data.site.siteMetadata.author} height="medium">
         <div className="row">
           <div className="col">
             <img
@@ -161,18 +161,18 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             />
             <h3 className="m-4 animated">{data.site.siteMetadata.description}</h3>
             <hr />
-            <h4 className="m-4">
+            <h4 className="m-4 animated delay-1s">
               Having started coding at the age of 11 it has always been my biggest passion. In 2010 I commercially
               started creating websites and have been doing it ever since.
             </h4>
-            <h4 className="m-4">
+            <h4 className="m-4 animated delay-2s">
               I describe myself as a full stack developer who specializes in creating beautiful and intuitive frontends.
             </h4>
-            <h4 className="m-4">
+            <h4 className="m-4 animated delay-3s">
               I have extensive experience in building enterprise web-apps and form-based applications with complex
               validation and business-logic to manage your data.
             </h4>
-            <Link className="m-4 btn btn-pill animated delay-1s" to="/about">
+            <Link className="m-4 btn btn-pill animated delay-4s" to="/about">
               Learn More
             </Link>
           </div>
