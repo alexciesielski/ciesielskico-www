@@ -1,5 +1,5 @@
 import { graphql, Link, PageProps } from 'gatsby';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Typed from 'typed.js';
 import FeaturedWork from '../components/featured-work';
 import Layout from '../components/layout';
@@ -103,7 +103,12 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
     animatables.forEach((animated) => observer.observe(animated));
   });
 
-  const vw = Math.max(window.innerWidth || 640);
+  const [width, setVW] = useState(640);
+
+  useEffect(() => {
+    const vw = Math.max(window.innerWidth || 640);
+    setVW(vw);
+  });
 
   return (
     <Layout>
@@ -114,7 +119,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         horizontalAlignment="left"
         textAlignment="left"
         verticalAlignment="bottom"
-        background={vw >= 640 && <VideoBackground />}
+        background={width >= 640 && <VideoBackground />}
       >
         <div className="row">
           <div className="col">
