@@ -51,7 +51,7 @@ const Clients: React.FC<{}> = ({}) => {
               <div
                 key={idx2}
                 className={`client col-sm-${12 / clientChunk.length} animated delay-${idx1 + idx2}s`}
-                style={{ maxWidth: '200px' }}
+                style={{ maxWidth: '250px' }}
               >
                 <div className="p-4">
                   <a href={client.url}>

@@ -57,13 +57,11 @@ const Skills: React.FC<{}> = ({}) => {
               .filter((skill) => skill.logo)
               .sort((a, b) => a.startDate.localeCompare(b.startDate))
               .map((skill, idx2) => (
-                <div
-                  key={idx2}
-                  className={`skill col-sm-${12 / skillChunk.length} animated delay-${idx1 + idx2}s`}
-                  style={{ maxWidth: '200px' }}
-                >
+                <div key={idx2} className={`skill col-sm-${12 / skillChunk.length} animated delay-${idx1 + idx2}s`}>
                   <div className="p-4">
-                    <ResponsiveImage name={skill.name} {...skill.logo} />
+                    <div>
+                      <ResponsiveImage name={skill.name} {...skill.logo} />
+                    </div>
                     <div className="p-2">{formatExperience(skill.startDate, skill.endDate)}</div>
                   </div>
                 </div>
