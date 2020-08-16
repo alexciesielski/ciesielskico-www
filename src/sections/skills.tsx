@@ -15,7 +15,7 @@ const Skills: React.FC<{}> = ({}) => {
           id
           logo {
             childImageSharp {
-              sizes(maxHeight: 200) {
+              sizes(maxHeight: 150) {
                 src
               }
             }
