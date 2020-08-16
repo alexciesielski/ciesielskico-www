@@ -1,0 +1,11 @@
+@import '../styles/variables';
+
+.client {
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+
+  &:hover {
+    border-radius: $border-radius * 8;
+    background-color: #ffffff;
+    box-shadow: 25px 25px 50px #d9d9d9, -25px -25px 50px #ffffff;
+  }
+}

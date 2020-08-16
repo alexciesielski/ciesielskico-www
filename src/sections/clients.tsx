@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import ResponsiveImage from '../components/responsive-image';
 import Section from '../components/section';
+import './clients.scss';
 
 type DataProps = {
   allStrapiClient: {

@@ -152,8 +152,10 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             <h3 className="m-4 animated">{data.site.siteMetadata.description}</h3>
             <hr />
             <h4 className="m-4 animated delay-1s">
-              Having started coding at the age of 11 it has always been my biggest passion. In 2010 I commercially
-              started creating websites and have been doing it ever since.
+              Having started coding at the age of 11 it has always been my biggest passion.
+            </h4>
+            <h4 className="m-4 animated delay-1s">
+              In 2010 I started commercially creating websites and have been doing it ever since.
             </h4>
             <h4 className="m-4 animated delay-2s">
               I describe myself as a full stack developer who specializes in creating beautiful and intuitive frontends.
