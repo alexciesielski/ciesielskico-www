@@ -27,6 +27,7 @@ export const query = graphql`
       project {
         name
         description
+        ciesielskico_description
         media {
           mime
           height
@@ -47,6 +48,7 @@ type DataProps = {
     project: {
       name: string;
       description: string;
+      ciesielskico_description: string;
       media: {
         mime: string;
         height: number;
@@ -177,7 +179,7 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         </div>
       </Section>
 
-      <Section color="dark" height="small">
+      <Section color="black" height="small">
         <div className="row" style={{ paddingTop: '3vw' }}>
           <div className="col">
             <div className="display-4 my-4 animated">I'd love to create your app.</div>

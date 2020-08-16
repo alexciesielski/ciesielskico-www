@@ -17,18 +17,17 @@
   border-radius: 300px;
 }
 
+.section-color--black,
 .section-color--dark {
   a {
-    color: $black;
+    color: $white;
 
     &:hover {
-      color: darken($body-color-inverted, 15%);
+      color: darken($body-color, 15%);
     }
   }
-}
 
-.section-color--dark {
-  a {
+  .btn {
     color: $body-color-inverted;
 
     &:hover {

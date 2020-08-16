@@ -13,11 +13,18 @@ export interface IResponsiveImage {
   childImageSharp?: {
     resize?: {
       src: string;
+      height?: number;
+    };
+    resolutions?: {
+      src: string;
+      height?: number;
     };
     sizes?: {
+      height?: number;
       presentationWidth: number;
       presentationHeight: number;
-      base64: string;
+      base64?: string;
+      src?: string;
     };
   };
 }
@@ -28,21 +35,22 @@ const ResponsiveImage: React.FC<{ name: string; zoom?: boolean } & IResponsiveIm
   publicURL,
   childImageSharp,
 }) => {
+  let src = publicURL;
+
+  if (childImageSharp) {
+    const { sizes, resize, resolutions } = childImageSharp;
+    if (sizes) {
+      src = sizes.src || sizes.base64;
+    } else if (resolutions) {
+      src = resolutions.src;
+    } else if (resize) {
+      src = resize.src;
+    }
+  }
+
   return (
     <div className={`responsive-image ${zoom ? 'zoom-on-hover' : ''}`.trim()}>
-      <img
-        className="img-fluid"
-        title={name}
-        src={
-          childImageSharp
-            ? childImageSharp.sizes
-              ? childImageSharp.sizes.base64
-              : childImageSharp.resize && childImageSharp.resize.src
-            : publicURL
-        }
-        alt={name}
-        loading="lazy"
-      />
+      <img className="img-fluid rounded" title={name} src={src} alt={name} loading="lazy" />
     </div>
   );
 };

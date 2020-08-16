@@ -11,10 +11,11 @@ const Skills: React.FC<{}> = ({}) => {
         nodes {
           name
           startDate
+          endDate
           id
           logo {
             childImageSharp {
-              resize(height: 150) {
+              sizes(maxHeight: 200) {
                 src
               }
             }
@@ -33,8 +34,12 @@ const Skills: React.FC<{}> = ({}) => {
     .filter((arr) => arr.length > 0);
 
   const oneYearInMs = 1000 * 3600 * 24 * 365;
-  const formatExperience = (start: string) => {
-    const experienceInYears = (new Date().getTime() - new Date(start).getTime()) / oneYearInMs;
+  const formatExperience = (start: string, end?: string) => {
+    const diffMs = end
+      ? new Date().getTime() - new Date(end).getTime() - new Date(start).getTime()
+      : new Date().getTime() - new Date(start).getTime();
+
+    const experienceInYears = diffMs / oneYearInMs;
 
     if (experienceInYears < 1) {
       return `< 1 year`;
@@ -59,7 +64,7 @@ const Skills: React.FC<{}> = ({}) => {
                 >
                   <div className="p-4">
                     <ResponsiveImage name={skill.name} {...skill.logo} />
-                    <span>{formatExperience(skill.startDate)}</span>
+                    <div className="p-2">{formatExperience(skill.startDate, skill.endDate)}</div>
                   </div>
                 </div>
               ))}
