@@ -11,7 +11,6 @@ function preloadVideo(url: string): Promise<void> {
   return new Promise((resolve) => {
     const video = document.createElement('video');
     video.oncanplaythrough = () => {
-      console.log('oncanplaythrough');
       resolve();
     };
     video.src = url;

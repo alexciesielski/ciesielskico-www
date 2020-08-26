@@ -76,7 +76,6 @@ const IndexPage: React.FC<PageProps<DataProps>> = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     preloadAssets(data.strapiHomePage.bg_video.map((video: { url: string }) => video.url)).finally(() => {
-      console.log('isloaded');
       setIsLoaded(true);
     });
   });
