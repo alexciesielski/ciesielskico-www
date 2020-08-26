@@ -142,16 +142,11 @@ const HomePage: React.FC<{}> = () => {
         </div>
       </Section>
 
-      <Section header={data.site.siteMetadata.author} height="medium">
+      <Section header={data.site.siteMetadata.author} height="medium" width="narrow">
         <div className="row">
           <div className="col">
-            <img
-              className="rounded-circle"
-              src="https://media-exp1.licdn.com/dms/image/C4E35AQG2MFYvOm183Q/profile-framedphoto-shrink_200_200/0?e=1597564800&v=beta&t=NvhxPEYkCMsOqyivt7xwYcnpZYTK5KkkfmvVLdDrqQU"
-              alt=""
-            />
             <h3 className="m-4 animated">{data.site.siteMetadata.description}</h3>
-            <hr />
+            <hr className="d-block my-4" />
             <h4 className="m-4 animated delay-1s">
               Having started coding at the age of 11 it has always been my biggest passion.
             </h4>
