@@ -4,7 +4,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 101vh;
   width: 100%;
 
   display: flex;
@@ -23,5 +23,19 @@
   &.loaded {
     transform: translateY(-100%);
     opacity: 0.3;
+  }
+
+  h1 {
+    animation: fadeIn 1s ease-in;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

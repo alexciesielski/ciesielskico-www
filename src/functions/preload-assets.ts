@@ -32,7 +32,7 @@ export function preloadAssets(urls: string[]) {
   return Promise.race([
     waitForXSeconds(2),
     Promise.all([
-      waitForXSeconds(0.5),
+      waitForXSeconds(1),
       ...urls.map((url) => {
         if (url.endsWith('mp4') || url.endsWith('webm')) {
           return preloadVideo(url);

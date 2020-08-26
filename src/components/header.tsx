@@ -50,7 +50,7 @@ const Header: React.FC<{
         <Link className="home" to="/">
           <h1 className="m-0 display-4">{siteTitle}</h1>
         </Link>
-        <LinkCollection classes="my-0 mx-4 h5 menu-item" pages={pages}></LinkCollection>
+        <LinkCollection classes="mt-4 mx-4 h5 menu-item" pages={pages}></LinkCollection>
 
         <a href="#" className={`my-0 mx-4 icon`} onClick={() => setMenuResponsive(!menuResponsive)}></a>
       </nav>

@@ -26,8 +26,6 @@ header {
 
   @include media-breakpoint-down(sm) {
     .topnav {
-      justify-content: space-between;
-
       a:not(:first-child) {
         display: none;
       }
