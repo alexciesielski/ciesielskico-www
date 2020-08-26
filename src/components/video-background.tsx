@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { scaleVideo } from '../functions/scale-video';
 import './video-background.scss';
 
@@ -25,7 +25,7 @@ export const VideoBackground: React.FC = () => {
     }
   `);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener('resize', scaleVideo);
     return () => window.removeEventListener('resize', scaleVideo);
   });

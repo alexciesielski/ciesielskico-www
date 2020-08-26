@@ -24,9 +24,6 @@ const Layout: React.FC<{ color?: 'white' }> = ({ children, color }) => {
   `);
 
   const pages: ILink[] = [
-    /* {
-      label: 'contact',
-    }, */
     {
       label: 'blog',
       external: true,
@@ -50,19 +47,19 @@ const Layout: React.FC<{ color?: 'white' }> = ({ children, color }) => {
   ];
 
   return (
-    <>
-      <div className={`${color ? `section-color--${color}` : ''}`}>
-        <Header pages={pages} siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
-        <footer>
-          <Section color="black" height="auto" horizontalAlignment="left" textAlignment="left">
-            <div className="d-flex flex-column" style={{ marginTop: '-45px' }}>
-              <LinkCollection classes="my-2 mx-4 display-4 h5 menu-item" pages={pages} />
-            </div>
-          </Section>
-        </footer>
-      </div>
-    </>
+    <div className={`ciesielskico-container ${color ? `section-color--${color}` : ''}`}>
+      <Header pages={pages} siteTitle={data.site.siteMetadata.title} />
+
+      <main>{children}</main>
+
+      <footer>
+        <Section color="black" height="auto" horizontalAlignment="left" textAlignment="left">
+          <div className="d-flex flex-column" style={{ marginTop: '-45px' }}>
+            <LinkCollection classes="my-2 mx-4 display-4 h5 menu-item" pages={pages} />
+          </div>
+        </Section>
+      </footer>
+    </div>
   );
 };
 

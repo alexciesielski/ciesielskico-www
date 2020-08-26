@@ -32,8 +32,10 @@ export function scaleVideo() {
     }
 
     videoPlayer.style.width = scaledWidth + 'px';
-    videoPlayer.style.height = scaledHeight + 'px';
+    // videoPlayer.style.height = scaledHeight + 'px';
     videoPlayer.style.left = 0 - (scaledWidth - width) / 2 + 'px';
     videoPlayer.style.top = 0 - (scaledHeight - height) / 2 + 'px';
+
+    // debugger;
   }
 }
