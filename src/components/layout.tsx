@@ -42,7 +42,7 @@ const Layout: React.FC<{ color?: 'white' }> = ({ children, color }) => {
     {
       label: 'stackoverflow',
       external: true,
-      url: 'https://stackoverflow.com/users/1808126/alexander-ciesielski/',
+      url: 'https://stackoverflow.com/cv/ciesielskico',
     },
   ];
 
