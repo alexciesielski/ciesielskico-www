@@ -19,13 +19,15 @@
 
   text-align: center;
 
-  transition: 1.25s ease-in;
+  transition: 1s ease-in;
+
   &.loaded {
-    transform: translateY(-100%);
-    opacity: 0.3;
+    transform: translateY(-200%);
+    background: transparent;
+    opacity: 0;
   }
 
-  h1 {
+  .fade-in {
     animation: fadeIn 1s ease-in;
   }
 }

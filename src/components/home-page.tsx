@@ -77,7 +77,7 @@ const HomePage: React.FC<{}> = () => {
       new Typed('#typed', {
         stringsElement: '#typed-strings',
         typeSpeed: 40,
-        startDelay: 1250,
+        startDelay: 1500,
         backDelay: 1000,
         onBegin: () =>
           setTimeout(() => {
