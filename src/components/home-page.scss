@@ -1,7 +1,0 @@
-@import '../styles/variables';
-
-#typed {
-  @include media-breakpoint-down(md) {
-    font-size: calc(1rem + 5.7vw);
-  }
-}
